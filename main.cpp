@@ -8,7 +8,7 @@
 
 using boost::asio::ip::tcp;
 
-enum { max_length = 1024 };
+enum { max_length = 1024 };// max_length - константа, что задает ограничение на вводимое число и ответ, и это приводит к ошибке при большей длине числа или большому выделению памяти
 
 int main(int argc, char* argv[])
 {
@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
                 delete[] request;
            } BOOST_SCOPE_EXIT_END
 
-            if (reply[0]<=57 && reply[0] > 48) {
+            if (reply[0]<=57 && reply[0] > 48) {// почему не использовать isdigit()?
                 string ch = "";
                 string st = "";
                 auto found = str.find('^');
